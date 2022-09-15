@@ -40,7 +40,37 @@ def interactive_plot():
 
     plot = px.scatter(df, x=x_axis_val, y=y_axis_val)
     st.plotly_chart(plot, use_container_width=True)
+def panos1():
+    import streamlit as st
+    import pandas as pd
 
+
+    @st.cache
+    def get_data():
+        return pd.read_csv('https://datahub.io/core/gdp/r/gdp.csv')
+
+
+    '# World GDP'
+
+    df = get_data()
+
+    min_year = int(df['Year'].min())
+    max_year = int(df['Year'].max())
+
+    countries = df['Country Name'].unique()
+
+    '## By country'
+    country = st.selectbox('Country', countries)
+    df[df['Country Name'] == country]
+
+
+    '## By year'
+    year = st.slider('Year', min_year, max_year)
+    df[df['Year'] == year]
+    
+    
+    
+    
 # Add a title and intro text
 st.title('Earthquake Data Explorer')
 st.text('This is a web app to allow exploration of Earthquake Data')
@@ -53,7 +83,7 @@ upload_file = ('https://github.com/c1gnzrfud/streamlit_tutorial_seriesC1/raw/mai
 
 #Sidebar navigation
 st.sidebar.title('Navigation')
-options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Data Header', 'Scatter Plot', 'Fancy Plots'])
+options = st.sidebar.radio('Select what you want to display:', ['Home', 'Data Summary', 'Data Header', 'Scatter Plot', 'Fancy Plots','Panos Data'])
 
 # Check if file has been uploaded
 if upload_file is not None:
@@ -70,3 +100,6 @@ elif options == 'Scatter Plot':
     displayplot()
 elif options == 'Fancy Plots':
     interactive_plot()
+elif options == 'Panos Data':
+    panos1()
+    
