@@ -68,5 +68,5 @@ elif options == 'Data Header':
     data_header()
 elif options == 'Scatter Plot':
     displayplot()
-elif options == 'Interactive Plots':
+elif options == 'Fancy Plots':
     interactive_plot()
