@@ -47,6 +47,8 @@ st.text('This is a web app to allow exploration of Earthquake Data')
 
 # Sidebar setup
 st.sidebar.title('Sidebar')
+#
+upload_file = "https://github.com/c1gnzrfud/streamlit_tutorial_seriesC1/blob/main/data/kaggle_significant_earthquakes_database.csv"
 upload_file = st.sidebar.file_uploader('Upload a file containing earthquake data')
 #Sidebar navigation
 st.sidebar.title('Navigation')
