@@ -40,6 +40,7 @@ def interactive_plot():
 
     plot = px.scatter(df, x=x_axis_val, y=y_axis_val)
     st.plotly_chart(plot, use_container_width=True)
+
 def panos1():
     import streamlit as st
     import pandas as pd
